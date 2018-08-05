@@ -28,4 +28,15 @@
         android:layout_marginBottom="30dp"
         android:onClick="clickLocation" />
 
+    <Button
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="127dp"
+        android:text="Order"
+        android:onClick="goToOrder"/>
+
+
 </RelativeLayout>

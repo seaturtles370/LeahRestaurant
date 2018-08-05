@@ -12,7 +12,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String COORDINATES = "38.4088, 121.3716";
+    private static final String COORDINATES = "37.7749,-122.4194";
+    //37.7749,-122.4194
 
     @OnClick(R.id.location)
     public void clickLocation(View view){
@@ -26,5 +27,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void goToOrder(View view){
+        Intent goOrder = new Intent(this, Order.class);
+        startActivity(goOrder);
     }
 }
