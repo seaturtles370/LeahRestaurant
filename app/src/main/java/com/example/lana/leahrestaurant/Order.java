@@ -45,15 +45,28 @@ public class Order extends AppCompatActivity {
         orderLabel = findViewById(R.id.orderLabel);
         submitButton = findViewById(R.id.submitButton);
 
+        submitButton.setVisibility(View.INVISIBLE);
+        quantityTextView.setText("Quantity: " + quantityNumber);
+
+
         //Bdd Items Button Listener
         addToOrder.setOnClickListener(view -> {
+            quantityNumber = 1;
+            quantityTextView.setText("Quantity: " + quantityNumber);
             nameBlank.setVisibility(View.INVISIBLE);
             nameQuestion.setVisibility(View.INVISIBLE);
+            submitButton.setVisibility(View.VISIBLE);
             addItem(wholeOrder);
+            nameBlank.getText().clear();
+            itemBlank.getText().clear();
         });
 
         submitButton.setOnClickListener(view -> {
-            saveToLocalStorage(puttingDataInAString(wholeOrder));
+            quantityNumber = 1;
+            quantityTextView.setText("Quantity: " + quantityNumber);
+            nameBlank.setVisibility(View.VISIBLE);
+            nameQuestion.setVisibility(View.VISIBLE);
+                saveToLocalStorage(puttingDataInAString(wholeOrder));
         });
 
 
@@ -85,16 +98,13 @@ public class Order extends AppCompatActivity {
         String order = itemBlank.getText().toString();
         ordered.add(personName);
         ordered.add(quantityNumber +" "+ order);
-        nameBlank.getText().clear();
-        itemBlank.getText().clear();
-        quantityNumber = 0;
         return ordered;
     }
 
     private String puttingDataInAString(ArrayList<String> listOfItemsOrdered){
         String totalOrder = "";
         for(String item: listOfItemsOrdered){
-            totalOrder = totalOrder+ "\n" + item;
+            totalOrder = "\n" + totalOrder+ "\n" + item;
         }
         return totalOrder;
     }
@@ -104,7 +114,7 @@ public class Order extends AppCompatActivity {
         FileOutputStream fos = null;
 
         try {
-            fos = openFileOutput(FILE_NAME,MODE_PRIVATE);
+            fos = openFileOutput(FILE_NAME,MODE_APPEND);
             fos.write(text.getBytes());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,Toast.LENGTH_LONG).show();
         } catch (FileNotFoundException e) {

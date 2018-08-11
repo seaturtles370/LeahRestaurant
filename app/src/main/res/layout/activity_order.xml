@@ -70,7 +70,6 @@
         android:layout_toRightOf="@id/minusQuantityButt"
         android:layout_below="@id/itemBox"
         android:layout_marginStart="10dp"
-        android:text="Quantity: 1"
         />
 
     <Button
