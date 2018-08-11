@@ -14,6 +14,90 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="5dp"
         android:text="Order" />
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orderLabel"
+        android:text="What's your name?"/>
+
+    <EditText
+        android:id="@+id/nameBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/nameLabel"/>
+
+    <TextView
+        android:id="@+id/itemLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameBox"
+        android:text="What do you want (name 1 item)?"/>
+
+    <EditText
+        android:id="@+id/itemBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/itemLabel"
+     />
+
+    <Button
+        android:id="@+id/addQuantityButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:layout_below="@id/itemBox"
+        android:onClick="quantity"/>
+
+    <Button
+        android:id="@+id/minusQuantityButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/itemBox"
+        android:layout_marginStart="103dp"
+        android:onClick="quantity"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:textSize="20dp"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/minusQuantityButt"
+        android:layout_below="@id/itemBox"
+        android:layout_marginStart="10dp"
+        android:text="Quantity: 1"
+        />
+
+    <Button
+        android:id="@+id/addItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/submitButton"
+        android:layout_alignParentRight="true"
+        android:text="Add Item"
+
+        />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Submit for Checkout"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/addQuantityButt">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
